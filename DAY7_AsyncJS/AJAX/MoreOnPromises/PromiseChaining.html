@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      console.log("Started");
+      var thePromise = new Promise(function (resolve) {
+        setTimeout(function () {
+          resolve("Success");
+        }, 2000);
+      });
+      thePromise
+        .then(function (result) {
+          console.log(result);
+        })
+        .then(function () {
+          console.log("Second then success handler !");
+          throw new Error("Error in second then handler");
+        })
+        .then(
+          function () {
+            console.log("Third then success handler !");
+          },
+          function (error) {
+            console.error("Caught an error:", error.message);
+          },
+        )
+        .then(function () {
+          console.log("Fourth then success handler !");
+        })
+        .catch(function (error) {
+          console.error("Caught an error:", error.message);
+        }); // add .then()
+      console.log("Ended");
+    </script>
+  </head>
+  <body></body>
+</html>

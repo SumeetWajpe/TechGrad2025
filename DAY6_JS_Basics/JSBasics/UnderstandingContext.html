@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   function test() {
+      //     console.log(this);
+      //     console.log("Testing 1 2 3");
+      //   }
+      //   new test();
+
+      var person = {
+        name: "Novak Djokovic",
+        age: 38,
+        country: "Serbia",
+        greet: function (msg) {
+          console.log(msg + " " + this.name);
+        },
+      };
+      person.greet("Hello");
+
+      var anotherPerson = {
+        name: "Rafael Nadal",
+        age: 37,
+        country: "Spain",
+      };
+
+      //   person.greet.call(anotherPerson, "Hola");
+      //   person.greet.apply(anotherPerson, ["Hey"]);
+      var bindedGreet = person.greet.bind(anotherPerson, "Bonjour");
+
+      // after 10 , 100 lines of code
+      bindedGreet();
+
+      function Shape() {
+        this.length = 10;
+        this.breadth = 20;
+      }
+
+      function Rectangle() {
+        Shape.call(this); // Call the Shape constructor to inherit properties
+        this.isSquare = false;
+      }
+
+      var rect = new Rectangle();
+    </script>
+  </head>
+  <body></body>
+</html>

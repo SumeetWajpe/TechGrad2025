@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   var person = {
+      //     name: "Novak Djokovic",
+      //     age: 38,
+      //     country: "Serbia",
+      //   };
+
+      //   var player = Object.create(person);
+      //   player.worldRanking = 6;
+
+      //   var o = Object.create(null);
+
+      // Using Custom Constructor
+      function Car(name, speed) {
+        this.name = name || "Audi";
+        this.speed = speed || 100;
+        this.accelerate = function () {
+          console.log("VVRRRRROMMMMM");
+        };
+      }
+
+      function JamesBondCar() {
+        this.canFly = true;
+        this.canSubmerge = true;
+      }
+
+      JamesBondCar.prototype = new Car("Aston Martin", 300);
+      var jbc = new JamesBondCar();
+
+      // MultiLevel Inheritance
+      function BatmanCar() {
+        this.hasBatmobile = true;
+      }
+      BatmanCar.prototype = new JamesBondCar();
+
+      // Extending default Objects
+
+      Date.prototype.getDayName = function () {
+        switch (this.getDay()) {
+          case 0:
+            return "Sunday";
+          case 1:
+            return "Monday";
+          case 2:
+            return "Tuesday";
+          case 3:
+            return "Wednesday";
+          case 4:
+            return "Thursday";
+          case 5:
+            return "Friday";
+          case 6:
+            return "Saturday";
+        }
+      };
+
+      var date = new Date();
+      console.log(date.getDayName()); // Outputs the name of the day based on the current date
+    </script>
+  </head>
+  <body></body>
+</html>

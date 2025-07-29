@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Emp() {
+        this.salary = 2000000;
+        var _this = this;
+        setTimeout(function () {
+          console.log(_this.salary);
+        }, 2000);
+      }
+
+      var emp = new Emp();
+
+      function Outer() {
+        var x = 100;
+        console.log("Outer");
+
+        return function () {
+          console.log(x);
+          console.log("Inner");
+        };
+      }
+
+      var Inner = Outer();
+      Inner();
+
+      // OR
+      //   Outer()();
+    </script>
+  </head>
+  <body></body>
+</html>

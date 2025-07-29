@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   if (true) {
+      //     let x = 100; // x is a block-scoped variable
+      //     // after 100 lines of code
+      //     // let x = 200; // Error
+      //   }
+
+      //   console.log(x); // Error: x is not defined
+      //   let x = 200;
+
+      //   const PI = 3.14; // PI is a constant
+      //   PI = 3.1456565; // Error: Assignment to constant variable
+
+      // if(true){
+      //   const PI = 3.14; // PI is a constant
+      // }
+
+      // Spread Operator -- Array
+      var cars = ["BMW", "Audi", "Mercedes"];
+      var moreCars = ["Toyota", "Honda", "Ford"];
+      var allCars = [...cars, ...moreCars, "Tesla"];
+      //cars[0] = "Lamborghini"; // This will not affect allCars
+
+      //   var person = {
+      //     name: "Novak Djokovic",
+      //     age: 38,
+      //     country: "Serbia",
+      //   };
+
+      //   var player = { name: "Joker", worldRanking: 6, ...person };
+
+      var player = {
+        pname: "Novak Djokovic",
+        age: 38,
+        country: "Serbia",
+        stats: {
+          matchesPlayed: 100,
+          matchesWon: 80,
+          matchesLost: 20,
+          worldRanking: 6,
+        },
+      };
+
+      //   var pname = player.pname;
+      //   var age = player.age;
+      //   var country = player.country;
+
+      var {
+        age,
+        pName = "Unknown",
+        stats: { worldRanking: WR },
+      } = player; // Destructuring assignment
+
+      var cars = ["BMW", "Audi", "Mercedes"];
+      var [firstCar, , secondCar, thirdCar = "Tesla"] = cars;
+
+      // Function Parameters - Default parameters
+      //   function PrintBook(author = "Unknown", title = "Unknown", year = 2023) {
+      //     // year = year || 2023; // Default value for year
+      //     // author = author || "Unknown Author"; // Default value for author
+      //     // title = title || "Untitled"; // Default value for title
+      //     console.log("Author: " + author);
+      //     console.log("Title: " + title);
+      //     console.log("Year: " + year);
+      //   }
+
+      //   PrintBook("J.K. Rowling", "Harry Potter", 1997);
+      //   PrintBook();
+      //   PrintBook(undefined, undefined, 2005);
+
+      function PrintBook(author, ...titles) {
+        console.log(author);
+        console.log(titles);
+      }
+
+      PrintBook(
+        "Dr. APJ Abdul Kalam",
+        "Wings of Fire",
+        "Ignited Minds",
+        "The Life Tree",
+      );
+
+      //   var Add = function (x, y) {
+      //     return x + y;
+      //   };
+
+      // Arrow Functions (Lambda)
+
+      //   var Add = (x, y) => {
+      //     return x + y;
+      //   };
+
+      // OR
+      var Add = (x, y) => x + y;
+      console.log(Add(20, 30));
+
+      var Square = x => x * x;
+      console.log(Square(5));
+
+      var Print = () => console.log("Hello World");
+      Print();
+
+      // Classes in ES6
+
+      class Car {
+        constructor(name = "Audi", speed = 100) {
+          this.name = name;
+          this.speed = speed;
+        }
+        accelerate() {
+          return (
+            "The car " +
+            this.name +
+            " is accelerating at " +
+            this.speed +
+            " km/h"
+          );
+        }
+      }
+      //   var carObj = new Car("BMW", 200);
+      //   carObj.accelerate();
+      class JamesBondCar extends Car {
+        constructor(name, speed) {
+          super(name, speed);
+          this.canFly = true;
+          this.canSubmerge = true;
+        }
+        accelerate() {
+          return super.accelerate() + "Can it fly ?" + this.canFly;
+        }
+      }
+      var jbc = new JamesBondCar("Aston Martin", 300);
+      console.log(jbc.accelerate());
+    </script>
+  </head>
+  <body></body>
+</html>

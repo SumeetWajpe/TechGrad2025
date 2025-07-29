@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Object Literal Syntax
+      //   var player = {
+      //     name: "Carlos Alcaraz",
+      //     age: 20,
+      //     country: "Spain",
+      //     stats: {
+      //       matchesPlayed: 100,
+      //       matchesWon: 80,
+      //       matchesLost: 20,
+      //     },
+      //     getDetails: function () {
+      //       return (
+      //         "The player " +
+      //         this.name +
+      //         " is " +
+      //         this.age +
+      //         " years old and from " +
+      //         this.country +
+      //         "."
+      //       );
+      //     },
+      //   };
+      //   player.stats.isWorldNoOne = false;
+      //   console.log(player.getDetails());
+
+      // 2. Object Constructor Syntax
+      //   var player = new Object();
+      //   player.name = "Carlos Alcaraz";
+      //   player.age = 20;
+      //   player.country = "Spain";
+
+      // 3rd way to create an object - Custom Constructor Function
+      function Car(name, speed) {
+        this.name = name || "Audi";
+        this.speed = speed || 100;
+        this.accelerate = function () {
+          console.log("VVRRRRROMMMMM");
+        };
+      }
+
+      var carOne = new Car("BMW", 200);
+      var anotherCar = new Car();
+
+      var anotherRef = carOne;
+      anotherRef.name = "Mercedes";
+
+      //   function Add(a, b) {
+      //     return a + b;
+      //   }
+
+      //   console.log(Add());
+
+
+
+      
+
+    </script>
+  </head>
+  <body></body>
+</html>

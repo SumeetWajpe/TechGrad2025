@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"></script>
+    <script src="GetPosts.js"></script>
+    <script>
+      let aPromise = GetPosts();
+      aPromise.then(function (response) {
+        console.log(response.data);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

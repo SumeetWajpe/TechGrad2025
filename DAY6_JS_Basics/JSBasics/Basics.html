@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 1. Function declaration
+      // function Add(a, b) {
+      //     return a + b;
+      // }
+
+      // 2. Function as an expression
+      //   var Add = function (a, b) {
+      //     return a + b;
+      //   };
+      //   var result = Add(2, 3);
+      //   console.log(result); // 5
+
+      // Arrays
+      var cars = ["BMW", "Audi", "Mercedes", "Audi"];
+      var moreCars = new Array("Toyota", "Honda", "Ford");
+
+      // for
+      // for
+      //   for (var i = 0; i < cars.length; i++) {
+      //     console.log(cars[i]);
+      //   }
+
+      // forin
+      //   for (var index in cars) {
+      //     console.log(cars[index]);
+      //   }
+
+      // for of. - es6
+
+      //   for (var element of moreCars) {
+      //     console.log(element);
+      //   }
+
+      cars.push("Tesla");
+      cars.pop();
+      var result = cars.find(function (car) {
+        return car === "Audi";
+      });
+
+      result = cars.findIndex(function (car) {
+        return car === "Audi";
+      });
+
+      result = cars.filter(function (car) {
+        return car === "Audi";
+      });
+
+      result = cars.map(function (car) {
+        return car.toUpperCase();
+      });
+
+      
+
+
+
+
+
+    </script>
+  </head>
+  <body></body>
+</html>
