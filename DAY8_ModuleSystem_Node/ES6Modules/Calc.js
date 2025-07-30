@@ -16,3 +16,11 @@ console.log(
     3,
   )} and the addition is  ${MathModule.add(20, 30)}`,
 );
+
+// Enhanced Object Literal Syntax
+
+var firstname = "Novak";
+var lastname = "Djokovic";
+// var player = { firstname: firstname, lastname: lastname };
+// OR
+var player = { firstname, lastname }; // ES6
