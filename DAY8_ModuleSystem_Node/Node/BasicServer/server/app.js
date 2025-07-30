@@ -33,8 +33,7 @@ const server = createServer((req, res) => {
         res.end(data);
       }
     });
-  }
-  if (req.url === "/script.js") {
+  } else if (req.url === "/script.js" && req.method === "GET") {
     fs.readFile("./client/script.js", "utf8", (err, data) => {
       if (err) {
         console.error("Error reading file:", err);
@@ -48,6 +47,21 @@ const server = createServer((req, res) => {
         res.end(data);
       }
     });
+  } else if (req.url === "/products") {
+    // should come from DB
+    var products = [
+      { id: 1, name: "OLED", price: 10000 },
+      { id: 2, name: "QLED", price: 20000 },
+      { id: 3, name: "Curv LED", price: 30000 },
+    ];
+
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify(products));
+  } else if (req.url === "/newproduct" && req.method == "POST") {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify({ message: "New product added successfully!" }));
   }
 });
 
