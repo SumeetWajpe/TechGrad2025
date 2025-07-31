@@ -3,21 +3,36 @@ const courses = require("../models/courses.model");
 var router = express.Router();
 
 /* GET courses listing. */
-router.get("/", function (req, res, next) {
+router.get("/courses", function (req, res, next) {
   res.json(courses);
 });
 
-router.post("/newcourse", function (req, res, next) {
+router.post("/newcourse", function (req, res) {
+  const newCourse = req.body; // read the request body (payload)
+  courses.push(newCourse); // SQL command to insert the data in DB
   res.send("New Course Added Successfully");
 });
-router.get("/getcoursewithid", function (req, res, next) {
-  res.send("Return course with an id");
+router.get("/getcourse/:id", function (req, res) {
+  const courseId = req.params.id;
+  const course = courses.find(c => c.id === courseId);
+  if (course) {
+    res.json(course);
+  } else {
+    res.status(404).send("Course not found");
+  }
 });
 
-router.delete("/deletecourse", function (req, res, next) {
-  res.send("Course Deleted Successfully");
+router.delete("/course/:id", function (req, res) {
+  const courseId = req.params.id;
+  const courseIndex = courses.findIndex(c => c.id === courseId);
+  if (courseIndex !== -1) {
+    courses.splice(courseIndex, 1);
+    res.send("Course Deleted Successfully");
+  } else {
+    res.status(404).send("Course not found");
+  }
 });
-router.put("/updatecourse", function (req, res, next) {
+router.put("/updatecourse", function (req, res) {
   res.send("Course Updated Successfully");
 });
 

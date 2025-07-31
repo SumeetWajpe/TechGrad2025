@@ -1,5 +1,6 @@
 const express = require("express");
 const productsRouter = require("./routes/products.routes");
+const mysql = require("mysql");
 const app = express();
 const port = 3000;
 
@@ -23,6 +24,24 @@ app.use("/products", productsRouter);
 //   ];
 //   res.json(products);
 // });
+
+// MySQL
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "n3u3da!",
+  database: "your_db_name",
+});
+
+connection.connect();
+
+connection.query("SELECT * from trades", (err, rows, fields) => {
+  if (err) throw err;
+
+  console.log("The solution is: ", rows[0]);
+});
+
+connection.end();
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
