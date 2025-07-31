@@ -1,10 +1,16 @@
 var express = require("express");
-const courses = require("../models/courses.model");
+var courses = require("../models/courses.model");
+
 var router = express.Router();
 
 /* GET courses listing. */
-router.get("/courses", function (req, res, next) {
-  res.json(courses);
+router.get("/courses", async function (req, res, next) {
+  try {
+    const coursesList = await courses.getCourses();
+    res.json(coursesList);
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.post("/newcourse", function (req, res) {
