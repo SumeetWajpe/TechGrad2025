@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*
+      // children selectors
+        div > p {
+            color: blue;
+        }
+
+        // descendant selectors
+        div span {
+            color: green;
+        }   
+        */
+
+      /* p:first-child {
+        background-color: lightblue;
+      } */
+      /* p:last-child {
+        background-color: lightblue;
+      } */
+      ul li:nth-child(2n + 1) {
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>Assam Tea</li>
+      <li>Darjeeling Tea</li>
+      <li>Nilgiri Tea</li>
+      <li>Jasmine Tea</li>
+      <li>Ginger Tea</li>
+      <li>Masala Tea</li>
+    </ul>
+    <div>
+      <p>
+        This is a simple
+        <span>HTML document</span>
+        demonstrating the use of semantic tags and basic CSS. Semantic tags help
+        define the structure of the document, making it more readable and
+        accessible.
+      </p>
+    </div>
+    <section>
+      <header>
+        <h2>Section Title</h2>
+        <p>This section contains additional information.</p>
+      </header>
+    </section>
+  </body>
+</html>
