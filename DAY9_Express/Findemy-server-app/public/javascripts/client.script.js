@@ -12,16 +12,56 @@ window.addEventListener("DOMContentLoaded", async function () {
 });
 // function to display courses in the UI
 function displayCourses(courses) {
-  const courseListUL = document.querySelector(".list-of-courses");
-  for (let index = 0; index < courses.length; index++) {
-    const newLi = document.createElement("li");
-    newLi.innerText = courses[index].title;
-    newLi.className = "fw-bold";
-    courseListUL.appendChild(newLi);
-    // OR
-    // var list = document.querySelector(".list-of-courses");
-    // list.innerHTML += `<li class="fw-bold">${courses[index].title}</li>`;
+  //   const courseList = document.querySelector(".list-of-courses");
+  //   for (let index = 0; index < courses.length; index++) {
+  //     const newLi = document.createElement("li");
+  //     newLi.innerText = courses[index].title;
+  //     newLi.className = "fw-bold";
+  //     courseList.appendChild(newLi);
+  //     // OR
+  //     // var list = document.querySelector(".list-of-courses");
+  //     // list.innerHTML += `<li class="fw-bold">${courses[index].title}</li>`;
+  //   }
+  // Use div with Grid for UI
+  var courseListContainer = document.querySelector(".list-of-courses");
+  // create a row
+  const courseList = document.createElement("div");
+  courseList.className = "row";
+
+  // add new courseItem for each course
+  // iterate over the courses array and create a new div for each course
+  for (const course of courses) {
+    const newCourseItem = document.createElement("div");
+    newCourseItem.className = "col-md-4 mb-3"; // Bootstrap classes for responsive layout
+    const courseCard = createCourseCard(course);
+    newCourseItem.appendChild(courseCard); // add the course card to the newCourseItem
+    courseList.appendChild(newCourseItem); // add a new Course item to courseList
   }
+  courseListContainer.appendChild(courseList);
+}
+
+function createCourseCard(course) {
+  // create a new div for the course card
+  const courseCard = document.createElement("div");
+  courseCard.className = "card";
+  // Create the Card Image
+  const cardImage = document.createElement("img");
+  cardImage.src = course.imageUrl;
+  cardImage.className = "card-img-top";
+  cardImage.alt = course.title;
+  cardImage.style.height = "200px"; // set a fixed height for the image
+  courseCard.appendChild(cardImage);
+
+  // Create the Card Body
+  const cardBody = document.createElement("div");
+  cardBody.className = "card-body";
+  // Create the Card Title
+  const cardTitle = document.createElement("h5");
+  cardTitle.className = "card-title";
+  cardTitle.innerText = course.title;
+  cardBody.appendChild(cardTitle)
+  courseCard.appendChild(cardBody); // adding card body to the course card
+  return courseCard;
 }
 // uses axios to make HTTP requests and fetch courses from the server
 async function FetchCourses(url) {

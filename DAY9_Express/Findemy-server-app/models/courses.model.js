@@ -48,8 +48,7 @@ var courses = [
     likes: 400,
     rating: 5,
     trainer: "Jack Well",
-    imageUrl:
-      "https://www.loginradius.com/blog/static/00a89fc56461ea1529439d89072c93f1/701ee/react.jpg",
+    imageUrl: "https://goodworklabs.com/wp-content/uploads/2016/10/reactjs.png",
     description:
       "React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies.React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies.",
   },
@@ -85,7 +84,7 @@ var courses = [
     rating: 3,
     trainer: "Matthew Bell",
     imageUrl:
-      "https://i0.wp.com/blog.knoldus.com/wp-content/uploads/2019/03/angular-blog.png?fit=1600%2C795&ssl=1",
+      "https://external-preview.redd.it/qW5sXZSe_7w815bbdJh3mwhzBxyEdK13fFyRs3_8ZdQ.jpg?auto=webp&s=6611d9c403cb948d1caf33e595f129bd18d745e3",
     description:
       "Angular is a TypeScript-based, free and open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS.",
   },
