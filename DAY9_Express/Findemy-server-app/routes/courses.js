@@ -4,10 +4,9 @@ var courses = require("../models/courses.model");
 var router = express.Router();
 
 /* GET courses listing. */
-router.get("/courses", async function (req, res, next) {
+router.get("/courses", function (req, res, next) {
   try {
-    const coursesList = await courses.getCourses();
-    res.json(coursesList);
+    res.json(courses);
   } catch (error) {
     next(error);
   }

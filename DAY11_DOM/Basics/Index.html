@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Init() {
+        // var usernameTxt = document.getElementById("txtName");
+        // console.log(usernameTxt.value);
+        // var divCols = document.getElementsByClassName("col");
+        // console.log(divCols.length);
+        // for (var i = 0; i < divCols.length; i++) {
+        //   console.log(divCols[i].innerText);
+        //   console.log(divCols[i].innerHTML);
+        //   console.log(divCols[i].className);
+        // get elements by tag name
+        // var divCols = document.getElementsByTagName("div");
+
+        var divCols = document.querySelector("#first");// html 5
+        console.log(divCols);
+      }
+    </script>
+  </head>
+  <body>
+    <label for="txtName">Username :</label>
+    <input type="text" id="txtName" />
+
+    <div class="col"><h2>Col - 1</h2></div>
+    <div class="col">Col - 2</div>
+    <div class="col">Col -3</div>
+    <input type="button" onclick="Init()" value="Submit" />
+  </body>
+</html>
