@@ -32,7 +32,7 @@ function displayCourses(courses) {
   // iterate over the courses array and create a new div for each course
   for (const course of courses) {
     const newCourseItem = document.createElement("div");
-    newCourseItem.className = "col-md-4 mb-3"; // Bootstrap classes for responsive layout
+    newCourseItem.className = "col-md-3 mb-3"; // Bootstrap classes for responsive layout
     const courseCard = createCourseCard(course);
     newCourseItem.appendChild(courseCard); // add the course card to the newCourseItem
     courseList.appendChild(newCourseItem); // add a new Course item to courseList
@@ -59,7 +59,37 @@ function createCourseCard(course) {
   const cardTitle = document.createElement("h5");
   cardTitle.className = "card-title";
   cardTitle.innerText = course.title;
-  cardBody.appendChild(cardTitle)
+
+  // Create the Card Text
+  const cardText = document.createElement("p");
+  cardText.className = "card-text";
+  cardText.innerText = "₹." + course.price;
+  // Create Likes Button
+  const likesButton = document.createElement("button");
+  likesButton.className = "btn btn-primary";
+  likesButton.innerText = course.likes;
+
+  // Create Rating
+  const rating = document.createElement("p");
+  rating.style.color = "orange";
+  for (let index = 0; index < course.rating; index++) {
+    const star = document.createElement("i");
+    star.className = "fa-solid fa-star";
+    rating.appendChild(star);
+  }
+
+  // Create Delete Button
+  const deleteButton = document.createElement("button");
+  deleteButton.className = "btn btn-danger mx-2";
+  deleteButton.innerText = "Delete";
+
+  cardBody.appendChild(cardTitle);
+  cardBody.appendChild(rating); // adding rating to the card body
+  cardBody.appendChild(cardText);
+  cardBody.appendChild(likesButton); // adding likes button to the card body
+
+  cardBody.appendChild(deleteButton); // adding delete button to the card body
+
   courseCard.appendChild(cardBody); // adding card body to the course card
   return courseCard;
 }
