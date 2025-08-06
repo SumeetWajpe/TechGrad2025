@@ -29,11 +29,11 @@ router.get("/getcourse/:id", function (req, res) {
 
 router.delete("/course/:id", function (req, res) {
   const courseId = req.params.id;
-  const courseIndex = courses.findIndex(c => c.id === courseId);
+  const courseIndex = courses.findIndex(c => c.id == courseId);
   if (courseIndex !== -1) {
-    courses.splice(courseIndex, 1);
+    let theDeletedCourse = courses.splice(courseIndex, 1);
     res.json({
-      msg: `${courses[courseIndex].title} Course Deleted Successfully`,
+      msg: `${theDeletedCourse[0].title} Course Deleted Successfully`,
       deleteStatus: true,
     });
   } else {
