@@ -143,25 +143,69 @@ function DeleteCourseHandler(courseId) {
     });
 }
 
+function addCourse() {
+  // get data from the form
+  const courseId = document.getElementById("course-id").value;
+  const courseTitle = document.getElementById("course-title").value;
+  const courseImage = document.getElementById("course-image").value;
+  const coursePrice = document.getElementById("course-price").value;
+  const courseDescription = document.getElementById("course-description").value;
+  const courseLikes = document.getElementById("course-likes").value;
+  // create a new course object
+  const newCourse = {
+    id: courseId,
+    title: courseTitle,
+    imageUrl: courseImage,
+    price: coursePrice,
+    description: courseDescription,
+    likes: courseLikes,
+    rating: 5,
+  };
+  // ajax
 
-function addCourse(){
-    // get data from the form
-    const courseId = document.getElementById("course-id").value;
-    const courseTitle = document.getElementById("course-title").value;
-    const courseImage = document.getElementById("course-image").value;
-    const coursePrice = document.getElementById("course-price").value;
-    const courseDescription = document.getElementById("course-description").value;
-    const courseLikes = document.getElementById("course-likes").value;
-    const courseRating = document.getElementById("course-rating").value;
-    // create a new course object
-    const newCourse = {
-      id: courseId,
-      title: courseTitle,
-      imageUrl: courseImage,
-      price: coursePrice,
-      description: courseDescription,
-      likes: courseLikes,
-      rating: courseRating,
-    };
-    // ajax
+  axios
+    .post("http://localhost:3000/newcourse", newCourse)
+    .then(response => {
+      // show success message
+      toastr.success("Add Course", response.data, {
+        closeButton: true,
+        debug: false,
+        newestOnTop: false,
+        progressBar: true,
+        positionClass: "toast-top-center",
+        preventDuplicates: false,
+        onclick: null,
+        showDuration: "300",
+        hideDuration: "1000",
+        timeOut: "5000",
+        extendedTimeOut: "1000",
+        showEasing: "swing",
+        hideEasing: "linear",
+        showMethod: "fadeIn",
+        hideMethod: "fadeOut",
+      });
+      // clear the form
+      document.getElementById("add-course-form").reset();
+    })
+    .catch(error => {
+      console.error("Error adding course:", error);
+      toastr.error("Add Course", "Failed to add course. Please try again.", {
+        closeButton: true,
+        debug: false,
+        newestOnTop: false,
+        progressBar: true,
+        positionClass: "toast-top-center",
+        preventDuplicates: false,
+        onclick: null,
+        showDuration: "300",
+        hideDuration: "1000",
+        timeOut: "5000",
+        extendedTimeOut: "1000",
+        showEasing: "swing",
+        hideEasing: "linear",
+        showMethod: "fadeIn",
+        hideMethod: "fadeOut",
+      });
+    });
+  // end of addCourse function
 }

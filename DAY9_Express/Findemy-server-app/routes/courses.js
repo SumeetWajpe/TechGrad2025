@@ -14,6 +14,7 @@ router.get("/courses", function (req, res, next) {
 
 router.post("/newcourse", function (req, res) {
   const newCourse = req.body; // read the request body (payload)
+  console.log(newCourse);
   courses.push(newCourse); // SQL command to insert the data in DB
   res.send("New Course Added Successfully");
 });
