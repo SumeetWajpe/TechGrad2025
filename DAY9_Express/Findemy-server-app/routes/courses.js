@@ -32,7 +32,10 @@ router.delete("/course/:id", function (req, res) {
   const courseIndex = courses.findIndex(c => c.id === courseId);
   if (courseIndex !== -1) {
     courses.splice(courseIndex, 1);
-    res.send("Course Deleted Successfully");
+    res.json({
+      msg: `${courses[courseIndex].title} Course Deleted Successfully`,
+      deleteStatus: true,
+    });
   } else {
     res.status(404).send("Course not found");
   }

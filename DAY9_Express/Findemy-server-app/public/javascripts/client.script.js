@@ -33,6 +33,7 @@ function displayCourses(courses) {
   for (const course of courses) {
     const newCourseItem = document.createElement("div");
     newCourseItem.className = "col-md-3 mb-3"; // Bootstrap classes for responsive layout
+    newCourseItem.id = `course-${course.id}`; // set an id for the course item
     const courseCard = createCourseCard(course);
     newCourseItem.appendChild(courseCard); // add the course card to the newCourseItem
     courseList.appendChild(newCourseItem); // add a new Course item to courseList
@@ -67,7 +68,7 @@ function createCourseCard(course) {
   // Create Likes Button
   const likesButton = document.createElement("button");
   likesButton.className = "btn btn-primary";
-  likesButton.innerText = course.likes;
+  likesButton.innerHTML = `${course.likes} <i class="fa-solid fa-thumbs-up"></i>`;
 
   // Create Rating
   const rating = document.createElement("p");
@@ -81,7 +82,9 @@ function createCourseCard(course) {
   // Create Delete Button
   const deleteButton = document.createElement("button");
   deleteButton.className = "btn btn-danger mx-2";
-  deleteButton.innerText = "Delete";
+  deleteButton.innerHTML = `Delete <i class="fa-solid fa-trash"></i> `;
+  //   deleteButton.onclick = function () {};
+  deleteButton.addEventListener("click", () => DeleteCourseHandler(course.id));
 
   cardBody.appendChild(cardTitle);
   cardBody.appendChild(rating); // adding rating to the card body
@@ -102,4 +105,22 @@ async function FetchCourses(url) {
   } catch (error) {
     console.log(error);
   }
+}
+
+function DeleteCourseHandler(courseId) {
+  // make async call  to API (delete)
+  console.log(courseId);
+  axios
+    .delete(`http://localhost:3000/course/${courseId}`)
+    .then(response => {
+      console.log(response.data);
+      // remove the course from the UI
+      const courseCard = document.getElementById(`course-${courseId}`);
+      if (courseCard) {
+        courseCard.remove();
+      }
+    })
+    .catch(error => {
+      console.error("Error deleting course:", error);
+    });
 }
