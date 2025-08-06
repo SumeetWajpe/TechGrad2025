@@ -68,7 +68,7 @@ function createCourseCard(course) {
   // Create Likes Button
   const likesButton = document.createElement("button");
   likesButton.className = "btn btn-primary";
-  likesButton.innerHTML = `${course.likes} <i class="fa-solid fa-thumbs-up"></i>`;
+  likesButton.innerHTML = `Likes ${course.likes} <i class="fa-solid fa-thumbs-up"></i>`;
 
   // Create Rating
   const rating = document.createElement("p");
@@ -113,7 +113,9 @@ function DeleteCourseHandler(courseId) {
   axios
     .delete(`http://localhost:3000/course/${courseId}`)
     .then(response => {
-      console.log(response.data);
+      // alert(response.data.msg); // show success message
+      // console.log(response.data);
+      toastr.success("Delete Course", response.data.msg);
       // remove the course from the UI
       const courseCard = document.getElementById(`course-${courseId}`);
       if (courseCard) {

@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <title>Express</title>
+  </head>
+
+  <body class="container">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Findemy</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">
+                  Courses
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/courses/new">
+                  New Course
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="new-course-form">
+        <div class="row justify-center align-items-center">
+          <div class="col-md-6">
+            <h2>Add New Course</h2>
+            <p class="text-muted">
+              Fill in the details to add a new course to the platform.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <form id="add-course-form">
+              <div class="mb-3">
+                <label for="course-id" class="form-label">Course Id</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="course-id"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="course-title" class="form-label">
+                  Course Title
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="course-title"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="course-image" class="form-label">
+                  Course Image URL
+                </label>
+                <input
+                  type="url"
+                  class="form-control"
+                  id="course-image"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="course-price" class="form-label">
+                  Course Price
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="course-price"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="course-description" class="form-label">
+                  Course Description
+                </label>
+                <textarea
+                  class="form-control"
+                  id="course-description"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Add Course
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+
+    <!-- fetching blocking resources after the DOM is ready -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+    <script src="javascripts/client.script.js"></script>
+  </body>
+</html>
