@@ -2,10 +2,12 @@
 // This script fetches courses from the server when the DOM is fully loaded
 window.addEventListener("DOMContentLoaded", async function () {
   try {
-    // fetch courses
-    var courses = await FetchCourses("http://localhost:3000/courses");
-    // display courses in the UI
-    displayCourses(courses);
+    if (this.window.location.pathname === "/") {
+      // Fetch courses from the server
+      const courses = await FetchCourses("http://localhost:3000/courses");
+      // Display courses in the UI
+      displayCourses(courses);
+    }
   } catch (error) {
     console.log(error);
   }
